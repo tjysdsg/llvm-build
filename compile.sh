@@ -1,3 +1,8 @@
+set -e
+set -x
+
+sudo apt install -y ninja-build
+
 echo "hello world"
 root_dir=$(pwd)
 
