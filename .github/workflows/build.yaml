@@ -18,3 +18,8 @@ jobs:
           submodules: 'recursive'
       - name: compile all
         run: bash compile.sh
+      - name: upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: llvm-10
+          path: llvm-10
