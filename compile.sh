@@ -1,7 +1,7 @@
 set -e
 set -x
 
-sudo apt install -y ninja-build
+sudo apt install -y ninja-build lld-10 lld
 
 echo "hello world"
 root_dir=$(pwd)
