@@ -16,9 +16,11 @@ pushd build
 export CC=$(which clang)
 export CXX=$(which clang++)
 
-cmake ../llvm -G Ninja -DCMAKE_BUILD_TYPE=Release -DLLVM_INCLUDE_EXAMPLES=OFF -DLLVM_INCLUDE_TESTS=OFF \
-  -DLLVM_INCLUDE_BENCHMARKS=OFF -DLLVM_BUILD_LLVM_DYLIB=ON -DLLVM_ENABLE_LLD=ON -DLLVM_ENABLE_BINDINGS=OFF \
+# https://llvm.org/docs/CMake.html#llvm-related-variables
+cmake ../llvm -G Ninja -DCMAKE_BUILD_TYPE=RelWithDebInfo -DLLVM_INCLUDE_EXAMPLES=OFF -DLLVM_INCLUDE_TESTS=OFF \
+  -DLLVM_INCLUDE_BENCHMARKS=OFF -DLLVM_BUILD_LLVM_DYLIB=OFF -DLLVM_ENABLE_BINDINGS=OFF \
   -DLLVM_ENABLE_PROJECTS="llvm;clang;clang-tools-extra;libc;libclc;libcxx;libcxxabi;libunwind;lld;lldb;openmp;parallel-libs;polly;pstl" \
+  -DLLVM_ENABLE_LLD=ON -DLLVM_PARALLEL_LINK_JOBS=1 -DLLVM_INCLUDE_TOOLS=OFF \
   -DCMAKE_INSTALL_PREFIX=${root_dir}/llvm-10
 
 cmake --build . --target install --config Release
