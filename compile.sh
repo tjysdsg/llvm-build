@@ -17,7 +17,7 @@ export CC=$(which clang)
 export CXX=$(which clang++)
 
 # https://llvm.org/docs/CMake.html#llvm-related-variables
-cmake ../llvm -G Ninja -DCMAKE_BUILD_TYPE=RelWithDebInfo -DLLVM_INCLUDE_EXAMPLES=OFF -DLLVM_INCLUDE_TESTS=OFF \
+cmake ../llvm -G Ninja -DCMAKE_BUILD_TYPE=Release -DLLVM_INCLUDE_EXAMPLES=OFF -DLLVM_INCLUDE_TESTS=OFF \
   -DLLVM_INCLUDE_BENCHMARKS=OFF -DLLVM_BUILD_LLVM_DYLIB=OFF -DLLVM_ENABLE_BINDINGS=OFF \
   -DLLVM_ENABLE_PROJECTS="llvm;clang;clang-tools-extra" \
   -DLLVM_ENABLE_LLD=ON -DLLVM_PARALLEL_LINK_JOBS=1 \
